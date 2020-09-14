@@ -1,13 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-char input[2048];
+#include <editline/readline.h>
+//#include <editline/history.h>
+//gcc main.c -ledit
+
+char *input;
 
 //catch ctrl c interrupt
 
 int main(int argc, char **argv) {
-	puts("press ctrl+d to exit");
+	puts("press ctrl+d to exit\n");
 	while(1) {
-		fputs("idris> ", stdout);
-		fgets(input, 2048, stdin);
-		printf("%s", input); }
+		input=readline("idris> ");
+		add_history(input);
+		printf("%s\n", input);
+		free(input); }
 	return 0; }
