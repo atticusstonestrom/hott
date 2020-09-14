@@ -5,6 +5,19 @@
 //#include <editline/history.h>
 //gcc main.c -ledit
 
+
+typedef struct {
+	char *expr;
+	char *type;
+} atom;
+
+//sort all judgements by type of hypotheses for efficient lookup
+
+//(axiom (: zero Nat))
+//(axiom (: n Nat) (: (succ n) Nat))
+//(axiom (n Nat) (: (U n) (U (succ n))))
+//(axiom ==
+
 char *input;
 
 //catch ctrl c interrupt
