@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-chat input[2048];
+char input[2048];
 
 //catch ctrl c interrupt
 
