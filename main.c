@@ -9,5 +9,5 @@ int main(int argc, char **argv) {
 	while(1) {
 		fputs("idris> ", stdout);
 		fgets(input, 2048, stdin);
-		puts("\t%s", input); }
+		printf("\t%s\n", input); }
 	return 0; }
