@@ -9,7 +9,12 @@
 typedef struct {
 	char *expr;
 	char *type;
-} atom;
+} atom_t;
+
+typedef struct {
+	char *var;
+	char *type;
+} ctx_atom_t;
 
 //sort all judgements by type of hypotheses for efficient lookup
 
