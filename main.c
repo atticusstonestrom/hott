@@ -16,6 +16,16 @@ typedef struct {
 	char *type;
 } ctx_atom_t;
 
+int judge_context(ctx_atom_t *gamma) {
+	if(gamma->var==NULL) {
+		return 1; }
+	if(!judge_same_type(gamma->type, gamma->type)) {
+		return 0; }
+	int i;
+	for(i=0; (gamma+i)->var!=NULL; i++) {	//not really efficient, O(n!)
+		if(str_eq(gamma->var, (gamma+i)->var)) { return 0; }}
+	return judge_context(gamma+1); }
+
 //sort all judgements by type of hypotheses for efficient lookup
 
 //(axiom (: zero Nat))
