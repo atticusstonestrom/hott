@@ -5,6 +5,9 @@
 //#include <editline/history.h>
 //gcc main.c -ledit
 
+//scrub all whitespace including double spaces
+//int scrub();
+
 
 /*typedef struct {
 	char *expr;
