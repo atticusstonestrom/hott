@@ -107,14 +107,12 @@ int print_tree(char *input, int depth) {
 			if(input[i-1]==' ') {
 				printf("unexpected space before ')'\n");
 				return 0; }
-			for(j=0; j<depth; j++) {
-				printf("\t"); }
+			for(j=0; j<depth; j++) { putchar('\t'); }
 			printf("%.*s\n", (int)((input+(long)i)-last), last);
 			return i+1;
 			break;
 		case ' ':
-			for(j=0; j<depth; j++) {
-				printf("\t"); }
+			for(j=0; j<depth; j++) { putchar('\t'); }
 			printf("%.*s\n", (int)((input+(long)i)-last), last);
 			last=input+i+1;
 			break;
