@@ -62,7 +62,8 @@ int judge_lookup(ctx_atom_t *gamma, var_t *to_lookup, type_t *to_fill) {
 //(axiom ==
 
 char *input;
-//char **tree;
+//struct *tree;
+//struct with id for expression or atom
 
 //catch ctrl c interrupt
 
