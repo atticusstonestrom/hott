@@ -30,11 +30,6 @@ typedef struct ctx_atom_t {
 //to check if ascii, use mask:	?
 //	0x000000
 
-/*int judge_same_type() {
-	hypothesissame;
-	typesame;
-	return 0; }
-
 int judge_context(ctx_atom_t *gamma) {
 	if(gamma->var==NULL) {
 		return 1; }
@@ -46,13 +41,28 @@ int judge_context(ctx_atom_t *gamma) {
 	//return judge_context(gamma->next);
 	return judge_context(gamma+1); }
 
-int judge_lookup(ctx_atom_t *gamma, var_t *to_lookup, type_t *to_fill) {
+char *judge_fresh(ctx_atom_t *gamma) {}
+
+char *judge_lookup(ctx_atom_t *gamma, char *to_lookup) {
 	if(gamma->var==NULL) {
-		return 0; }
+		return NULL; }
 	if(str_eq(gamma->var, to_lookup)) {
 		strncpy(to_fill, gamma->type);
 		return 1; }
-	return judge_lookup(gamma+1, to_lookup, to_fill); }*/
+	return judge_lookup(gamma+1, to_lookup, to_fill); }
+
+char *judge_type(ctx_atom_t *gamma, char *expr) {}
+
+int judge_same_type(ctx_atom_t *gamma, char *expr1, char *expr2) {
+	hypothesissame;
+	typesame;
+	return 0; }
+
+char *judge_expr_core(ctx_atom_t *gamma, char *expr) {}
+
+char *judge_type_core(ctx_atom_t *gamma, char *expr) {}
+
+int judge_same_expr(ctx_atom_t *gamma, char *expr1, char *expr2, char *type) {}
 
 //sort all judgements by type of hypotheses for efficient lookup
 
