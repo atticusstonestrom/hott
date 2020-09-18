@@ -6,6 +6,9 @@
 //gcc main.c -ledit
 
 //scrub all whitespace including double spaces
+//(first replace tabs+newlines – mod depth – with spaces, then remove double spaces)
+//then replace all lambda variables with deruijn indices
+	//need some thought about nested lambdas (recursive call with depths?)
 //int scrub();
 
 
