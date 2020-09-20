@@ -11,6 +11,32 @@
 	//need some thought about nested lambdas (recursive call with depths?)
 //int scrub();
 
+typedef struct ctx_elem_t {
+	int var;
+	char *type;
+} ctx_elem_t;
+int judge_context(ctx_elem_t *gamma, int len);
+int judge_type(ctx_elem_t *gamma, int len, 
+	       char *expr, char *type);
+int judge_same(ctx_elem_t *gamma, int len,
+	       char *expr1, char *expr2, char *type);
+
+
+int judge_context(ctx_elem_t *gamma, int len) {
+	if(!len) { return 1; }
+	if(gamma[len-1].var!=len-1) { return 0; }
+	//if(!judge_context(gamma, len-1)) { return 0; }	//here?
+		//"meta theoretic", so should check context in judge_type?
+	return judge_type(gamma, len-1, gamma[len-1].type, "(U _)"); }
+
+//vble
+
+int judge_type(ctx_elem_t *gamma, int len, 
+	       char *expr, char *type) {
+	if(!judge_context(gamma, len)) { return 0; }
+	//vble (should be char *, not int. say xi
+	//U_i:U_{j}
+	return 0; }
 
 /*typedef struct {
 	char *expr;
@@ -30,17 +56,6 @@ typedef struct ctx_atom_t {
 
 //to check if ascii, use mask:	?
 //	0x000000
-
-int judge_context(ctx_atom_t *gamma) {
-	if(gamma->var==NULL) {
-		return 1; }
-	if(!judge_same_type(gamma->type, gamma->type)) {
-		return 0; }
-	//int i;
-	//for(i=0; (gamma+i)->var!=NULL; i++) {	//not really efficient, O(n!)
-	//	if(str_eq(gamma->var, (gamma+i)->var)) { return 0; }}
-	//return judge_context(gamma->next);
-	return judge_context(gamma+1); }
 
 char *judge_fresh(ctx_atom_t *gamma) {}
 
